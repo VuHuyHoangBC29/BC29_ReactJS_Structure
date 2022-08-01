@@ -1,0 +1,29 @@
+.ghe {
+  width: 35px;
+  height: 35px;
+  margin: 3px;
+  background: #ccc;
+  &.gheVip {
+    background-color: pink;
+  }
+  &.dangDat {
+    background-color: yellow;
+  }
+  &:hover {
+    background-color: greenyellow;
+  }
+  &.daDat {
+    cursor: not-allowed;
+    background-color: gray !important;
+  }
+}
+
+// .gheVip {
+//   @extend .ghe;
+//   background: red;
+// }
+
+// .daDat {
+//   @extend .ghe;
+//   background: gray;
+// }
