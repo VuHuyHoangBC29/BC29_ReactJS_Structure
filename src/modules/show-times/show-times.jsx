@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { fetchMovieShowTimesApi } from "../../services/cinema";
 
 import moment from "moment";
+import { formatDate } from "../../utils/common";
 
 export default function ShowTimes() {
   const [showTimes, setShowTimes] = useState({});
@@ -67,7 +68,8 @@ export default function ShowTimes() {
                       return (
                         <div key={ele.maLichChieu} className="col-3">
                           <Link to={`/booking/${ele.maLichChieu}`}>
-                            {moment(ele.ngayChieuGioChieu).format("LLL")}
+                            {/* {moment(ele.ngayChieuGioChieu).format("LLL")} */}
+                            {formatDate(ele.ngayChieuGioChieu)}
                           </Link>
                         </div>
                       );

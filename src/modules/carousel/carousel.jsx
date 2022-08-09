@@ -14,7 +14,7 @@ export default function Carousel() {
   };
 
   return (
-    <CarouselAntd dotPosition="right" autoplay afterChange={onChange}>
+    <CarouselAntd dotPosition="right" autoplay>
       <div>
         <img
           src="https://afamilycdn.com/thumb_w/600/150157425591193600/2022/6/25/avatar1656128559553-1656128560430223223410-34-0-549-984-crop-16561288137262141958614.jpg"

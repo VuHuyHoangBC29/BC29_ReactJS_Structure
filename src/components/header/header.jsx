@@ -62,7 +62,7 @@ export default function Header() {
           ) : (
             <>
               <span>Xin chào {userState.userInfo.hoTen}</span>
-              <button onClick={handleLogout} className="btn btn-danger ml-3">
+              <button onClick={handleLogout} className="btn btn-success ml-3">
                 ĐĂNG XUẤT
               </button>
             </>

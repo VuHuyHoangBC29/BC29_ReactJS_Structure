@@ -1,15 +1,23 @@
-import React from "react";
+import UpdateMovie from "pages/update-movie/update-movie";
+import React, { lazy } from "react";
 import { useRoutes } from "react-router-dom";
-import AdminGuard from "../guards/admin.guard";
-import AuthGuard from "../guards/auth.guard";
-import NoAuthGuard from "../guards/no-auth.guard";
-import AdminLayout from "../layouts/admin";
-import HomeLayout from "../layouts/home";
-import Booking from "../pages/booking/booking";
-import Home from "../pages/home/home";
-import Login from "../pages/login/login";
-import MovieDetail from "../pages/movie-detail/movie-detail";
-import MovieManagement from "../pages/movie-management/movie-management";
+const AdminGuard = lazy(() => import("../guards/admin.guard"));
+const AuthGuard = lazy(() => import("../guards/auth.guard"));
+const NoAuthGuard = lazy(() => import("../guards/no-auth.guard"));
+const AdminLayout = lazy(() => import("../layouts/admin"));
+const HomeLayout = lazy(() => import("../layouts/home"));
+const Booking = lazy(() => import("../pages/booking/booking"));
+const Home = lazy(() => import("pages/home/home"));
+const Login = lazy(() => import("pages/login/login"));
+const MovieDetail = lazy(() => import("pages/movie-detail/movie-detail"));
+const MovieManagement = lazy(() =>
+  import("pages/movie-management/movie-management")
+);
+const CreateMovie = lazy(() => import("pages/create-movie/create-movie"));
+
+// const HomeLayout = lazy(() => import("../layouts/home"));
+// const Home = lazy(() => import("../pages/home/home"));
+// const MovieDetail = lazy(() => import("../pages/movie-detail/movie-detail"));
 
 export default function Router() {
   const routing = useRoutes([
@@ -58,6 +66,14 @@ export default function Router() {
             {
               path: "/admin/movie-management",
               element: <MovieManagement />,
+            },
+            {
+              path: "/admin/movie-management/create",
+              element: <CreateMovie />,
+            },
+            {
+              path: "/admin/movie-management/:movieId/update",
+              element: <UpdateMovie />,
             },
           ],
         },

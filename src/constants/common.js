@@ -4,3 +4,5 @@ export const TOKEN_CYBERSOFT =
 export const BASE_URL = "https://movienew.cybersoft.edu.vn/api";
 
 export const USER_INFO_KEY = "USER_INFO_KEY";
+
+export const GROUP_ID = "GP03";

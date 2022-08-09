@@ -1,24 +1,37 @@
 import { Button } from "antd";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { LoadingContext } from "../../contexts/loading.context";
+import { useAsync } from "../../hooks/useAsync";
 import { fetchMovieListApi } from "../../services/movie";
 
 export default function MovieList() {
   const navigate = useNavigate();
 
-  const [movieList, setMovieList] = useState([]);
+  // const [movieList, setMovieList] = useState([]);
 
-  useEffect(() => {
-    fetchMovieList();
-  }, []);
+  // const [_, setLoadingState] = useContext(LoadingContext);
 
-  const fetchMovieList = async () => {
-    const result = await fetchMovieListApi();
+  const { state: movieList = [] } = useAsync({
+    dependencies: [],
+    service: () => fetchMovieListApi(),
+  });
 
-    setMovieList(result.data.content);
+  // useEffect(() => {
+  //   fetchMovieList();
+  // }, []);
 
-    console.log(result);
-  };
+  // const fetchMovieList = async () => {
+  //   setLoadingState({ isLoading: true });
+
+  //   const result = await fetchMovieListApi();
+
+  //   setLoadingState({ isLoading: false });
+
+  //   setMovieList(result.data.content);
+
+  //   console.log(result);
+  // };
 
   const renderMovieList = () => {
     return movieList.map((ele) => {
